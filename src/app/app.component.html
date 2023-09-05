@@ -1,0 +1,14 @@
+
+<div class="container-fluid g-0">
+    <app-deshboard  (toggle)="toggleSidebar()"></app-deshboard>
+    <main>
+      <app-sidebar class="black-border" *ngIf="showSidebar"></app-sidebar>
+      
+    </main>/
+    <div class="display-area" [ngClass]="{'display-area-shrink':showSidebar}">
+      <!-- <app-employee-details></app-employee-details> -->
+      <router-outlet></router-outlet>
+    </div>
+</div> 
+
+

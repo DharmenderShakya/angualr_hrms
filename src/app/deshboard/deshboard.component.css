@@ -1,0 +1,31 @@
+nav{
+    height: 100%;
+    background-color:007bff;
+}
+.side-nav-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.side-nav-button:hover{
+    background-color: burlywood;
+    border-radius: 30%;
+}
+.profile{
+    float: right;
+}
+
+.navbar-brand{
+    width: 311px;
+    height: 62px;
+    padding-left: 9px;
+    display: block;
+    position: relative;
+}
+.span{
+    margin-left: 28px;
+    margin-top: 7px;
+}
+
