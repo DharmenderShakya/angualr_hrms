@@ -12,19 +12,19 @@ export class SidebarComponent implements OnInit {
       number:'2',
       name:'Add Employee',
       icon:'fa fa-desktop',
-      link:'/addemployee'
+      link:'addemployee'
     },
     {
       number:'3',
       name:'Employee Report',
       icon:'fa fa-bar-chart',
-      link:'/employee'
+      link:'employee'
     },
     {
       number:'4',
       name:'Add Leave',
       icon:'fa fa-plus-square',
-      link:'/addleave'
+      link:'addleave'
     },
     {
       number:'5',

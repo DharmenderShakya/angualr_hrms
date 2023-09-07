@@ -6,7 +6,6 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { DeshboardComponent } from './deshboard/deshboard.component';
 import { NgbDropdownModule, NgbModule, } from '@ng-bootstrap/ng-bootstrap';
 import { LeaveComponent } from './leave/leave.component';
 import { BsDropdownModule} from 'ngx-bootstrap';
@@ -22,6 +21,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { LeaveFormComponent } from './leave-form/leave-form.component';
 import { SalaryFormComponent } from './salary-form/salary-form.component'
+import { AuthGuard } from 'src/app/auth.guard';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DeshboardComponent } from './deshboard/deshboard.component';
 // import { DataService} from './employee-service.service';
 
 
@@ -30,7 +32,6 @@ import { SalaryFormComponent } from './salary-form/salary-form.component'
     AppComponent,
     EmployeeDetailsComponent,
     LoginComponent,
-    DeshboardComponent,
     LeaveComponent,
     SalaryComponent,
     ProjectComponent,
@@ -40,7 +41,9 @@ import { SalaryFormComponent } from './salary-form/salary-form.component'
     SidebarComponent,
     EmployeeFormComponent,
     LeaveFormComponent,
-    SalaryFormComponent
+    SalaryFormComponent,
+    NavbarComponent,
+    DeshboardComponent
   ],
   imports: [
     BsDatepickerModule,
@@ -53,9 +56,10 @@ import { SalaryFormComponent } from './salary-form/salary-form.component'
     BsDropdownModule.forRoot(),
     NgxPaginationModule,
     ModalModule.forRoot()
-   
     ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

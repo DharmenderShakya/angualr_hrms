@@ -89,7 +89,7 @@ addLeave(data:any){
   })
   this.uploadImage();
     alert("Save Sucussfully..");
-    this.leaveModal.hide()
+    this.leaveModal.hide()  
 }
 getbyId(id:number){
 this.leaveService.getLeaveById(id).subscribe(data=>{

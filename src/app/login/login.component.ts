@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { User } from '../employee';
 import {Router} from '@angular/router'
-import { FormGroup,FormBuilder, Validators } from '@angular/forms'; 
+import { FormGroup,FormBuilder, Validators, FormControl } from '@angular/forms'; 
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +12,12 @@ import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 user:Array<User>=[];
-formValue:any;
-  constructor(private userService:UsersService,private formBuilder:FormBuilder ,private router:Router) { 
+formValue:FormGroup;
+  constructor(private login:AuthService,private formBuilder:FormBuilder ,private router:Router) { 
 
-this.formValue=this.formBuilder.group({
-  userName:['',Validators.required],
-  password:['',Validators.required]
+this.formValue=new FormGroup({
+  name:new FormControl(),
+  password:new FormControl()
 })
   }
 
@@ -24,11 +25,15 @@ this.formValue=this.formBuilder.group({
   }
 
 loginUser(data:any){
-  console.log(data);
   
-  this.userService.loginUser(data).subscribe(data=>{
+ this.login.login(data).subscribe(authenticated=>{
+  if (authenticated) {
+    this.router.navigate(['/deshboard']);
+  }
+  else{
 
-  });
+  }
+ })
 }
 
 }

@@ -9,16 +9,18 @@ import { EmployeeDetailsPageComponent } from './employee-details-page/employee-d
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { LeaveFormComponent } from './leave-form/leave-form.component';
 import { SalaryFormComponent } from './salary-form/salary-form.component';
+import { AppComponent } from './app.component';
+import { AuthGuard } from './auth.guard';
+import { DeshboardComponent } from './deshboard/deshboard.component';
 const routes: Routes = [
-  {path:'employee',component:EmployeeDetailsComponent},
-  // {path:'login',component:LoginComponent },
-  {path:'addemployee',component:EmployeeFormComponent},
-  {path:'addleave',component:LeaveFormComponent},
-  {path:'addsalary',component:SalaryFormComponent},
-  {path:'leave',component:LeaveComponent},
-  {path:'project',component:ProjectComponent},
-  {path:'salary', component:SalaryComponent},
-  {path:'details/:id',component:EmployeeDetailsPageComponent}
+  {path:'login',component:LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'deshboard',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
 ];
 
 @NgModule({

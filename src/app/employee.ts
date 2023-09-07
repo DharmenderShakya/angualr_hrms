@@ -78,6 +78,12 @@ export class LeaveRequest{
 
 	employeeId:number;
 }
+
+export class Login{
+    name:string;
+    password:string;
+}
+
 export class UploadFile{
     file:any;
 }
